@@ -16,12 +16,10 @@ Usage
 
 By default, scpy connects to the Sia daemon on localhost:9980. You can pass host and/or port as arguments to modify this.
 
-Here are other usage examples:
+Scpy has 8 modules, which have their own methods. The documentation for each of those modules can be accessed in the
+sidebar. Here is an example of usage for each module:
 
 .. code-block:: python
-
-    >>> sc.wallet.unlock(seed)
-    True
 
     >>> sc.daemon.version()
     '1.2.2'
@@ -29,11 +27,23 @@ Here are other usage examples:
     >>> sc.consensus()['height']
     109720
 
+    >>> sc.gateway.connect('79.137.19.23:9981')
+    True
+
+    >>> sc.host()['externalsettings']['acceptingcontracts']
+    False
+
+    >>> sc.hostdb.active()
+    [{'acceptingcontracts': True, 'maxdownloadbatchsize': 17825792, 'maxduration': 25920, 'maxrevisebatchsize': 17825792, 'netaddress': '163.172.74.59:9982', 'remainingstorage': 56698601472,...}, ...]
+
     >>> sc.renter.prices()['storageterabytemonth']
     '376439999996419200000000000'
 
-    >>> sc.hastings_to_siacoin(int(sc.renter.prices()['storageterabytemonth']))
-    365.0999999969376
+    >>> sc.tpool.fee()
+    #to be implemented in next siad release
+
+    >>> sc.wallet.get_addresses()
+    ['81b202b982558b18ef62d93399b34ae0cd5c8e090504fa294d8a6b669a02d88a44caed9ea098', ...]
 
 
 
