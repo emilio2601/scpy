@@ -1,3 +1,5 @@
+import json
+
 class SiaWallet(object):
     def __init__(self, scpy):
         self.scpy = scpy
@@ -30,7 +32,16 @@ class SiaWallet(object):
         return self.scpy.get_api('/wallet/seeds', data={'dictionary': dictionary})
 
     def send_siacoins(self, amount, destination):
-        return self.scpy.post_api('/wallet/siacoins', data={'amount': amount, 'destination': destination})
+        return self.scpy.post_api('/wallet/siacoins',
+                                  data={'amount': amount, 'destination': destination, 'outputs': ""})
+
+    def send_to_many(self, list):
+        """list must be an array of (dest, amount) tuples"""
+        outputs = []
+        for transaction in list:
+            outputs.append({'unlockhash': transaction[0], 'value': transaction[1]})
+        return self.scpy.post_api('/wallet/siacoins',
+                                  data={'amount': "", 'destination': "", 'outputs': json.dumps(outputs)})
 
     def sweep(self, seed, dictionary='english'):
         return self.scpy.post_api('/wallet/sweep/seed', data={'seed': seed, 'dictionary': dictionary})
