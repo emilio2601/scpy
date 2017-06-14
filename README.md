@@ -30,7 +30,19 @@ True
 |Consensus | |
 |Gateway| |
 |Host| |
-|HostDB| |
+|HostDB| Done |
 |Renter| |
 |Transaction Pool| |
 |Wallet| Done, not tested |
+
+# Contributing
+Contributions are really welcome, whether they are bug reports/fixes, new features, documentation writing, really anything is appreciated.
+
+# License
+This project is licensed under the GNU GPL v3.0
+
+# Donations
+```python
+>>> sc.wallet.address()
+81b202b982558b18ef62d93399b34ae0cd5c8e090504fa294d8a6b669a02d88a44caed9ea098
+```
