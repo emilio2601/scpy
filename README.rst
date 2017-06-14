@@ -27,7 +27,7 @@ sidebar. Here is an example of usage for each module:
     >>> sc.consensus()['height']
     109720
 
-    >>> sc.gateway.connect('79.137.19.23:9981')
+    >>> sc.gateway.connect('12.34.56.78:9981')
     True
 
     >>> sc.host()['externalsettings']['acceptingcontracts']
