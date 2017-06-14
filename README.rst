@@ -7,13 +7,18 @@ Python3 API bindings for the `Sia API <https://github.com/NebulousLabs/Sia/blob/
 
 Usage
 -----
+
+.. code-block:: python
+
     >>> from scpy import Sia
     >>> sc = Sia()
     >>> sc = Sia(host='http://10.0.0.0', port=1234)
 
 By default, scpy connects to the Sia daemon on localhost:9980. You can pass host and/or port as arguments to modify this.
 
-Here are other usage examples::
+Here are other usage examples:
+
+.. code-block:: python
 
     >>> sc.wallet.unlock(seed)
     True
@@ -51,7 +56,7 @@ Wallet             ✔    ✖      ✖
 Installation
 ------------
 
-Install scpy by running::
+.. code-block:: console
 
     $ pip install scpy
 
@@ -69,5 +74,7 @@ This project is licensed under the GNU GPL v3.0
 
 Donations
 ---------
+.. code-block:: python
+
     >>> sc.wallet.address()
     81b202b982558b18ef62d93399b34ae0cd5c8e090504fa294d8a6b669a02d88a44caed9ea098
