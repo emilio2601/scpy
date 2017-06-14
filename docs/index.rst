@@ -23,7 +23,7 @@ Usage
     >>> sc = Sia()
     >>> sc = Sia(host='http://10.0.0.0', port=1234)
 
-By default, scpy connects to the Sia daemon on localhost:9980. You can pass host and/or port as arguments to modify this.
+By default, scpy connects to the Sia daemon on ``localhost:9980``. You can pass host and/or port as arguments to modify this.
 
 scpy has 8 modules, which have their own methods. The documentation for each of those modules can be accessed in the
 sidebar. Here is an example of usage for each module
@@ -34,7 +34,7 @@ sidebar. Here is an example of usage for each module
     >>> sc.consensus()['height']
     109720
 
-    >>> sc.gateway.connect('79.137.19.23:9981')
+    >>> sc.gateway.connect('12.34.56.78:9981')
     True
 
     >>> sc.host()['externalsettings']['acceptingcontracts']

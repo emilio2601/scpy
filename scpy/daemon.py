@@ -7,7 +7,7 @@ class SiaDaemon(object):
         """
         Returns the set of constants in use
 
-        :returns:  dict - {'constant': value}
+        :returns:  ``dict`` - {'constant': value}
         """
         return self.scpy.get_api('/daemon/constants')
 
@@ -17,8 +17,8 @@ class SiaDaemon(object):
 
         :param constant: The constant to look up
         :type constant: str
-        :returns:  str - the value of the constant
-        :raises: KeyError
+        :returns:  ``str`` - the value of the constant
+        :raises: ``KeyError``: If key not in the set of constants
         """
         try:
             return self.scpy.get_api('/daemon/constants')[constant]
@@ -31,7 +31,7 @@ class SiaDaemon(object):
         """
         Cleanly shuts down the Sia Daemon
 
-        :returns:  bool: If action was successful
+        :returns:  ``bool``: If action was successful
         """
         return self.scpy.get_api('/daemon/stop')
 
@@ -39,6 +39,6 @@ class SiaDaemon(object):
         """
         Returns the version of the Sia Daemon
 
-        :returns:  str
+        :returns:  ``str``
         """
         return self.scpy.get_api('/daemon/version')['version']
