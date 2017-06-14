@@ -33,7 +33,7 @@ class SiaWallet(object):
 
     def send_siacoins(self, amount, destination):
         return self.scpy.post_api('/wallet/siacoins',
-                                  data={'amount': amount, 'destination': destination, 'outputs': ""})
+                                  data={'amount': amount, 'destination': destination})
 
     def send_to_many(self, list):
         """list must be an array of (dest, amount) tuples"""
@@ -41,7 +41,7 @@ class SiaWallet(object):
         for transaction in list:
             outputs.append({'unlockhash': transaction[0], 'value': transaction[1]})
         return self.scpy.post_api('/wallet/siacoins',
-                                  data={'amount': "", 'destination': "", 'outputs': json.dumps(outputs)})
+                                  data={'outputs': json.dumps(outputs)})
 
     def sweep(self, seed, dictionary='english'):
         return self.scpy.post_api('/wallet/sweep/seed', data={'seed': seed, 'dictionary': dictionary})
