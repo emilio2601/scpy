@@ -1,6 +1,9 @@
 import json
 
 class SiaWallet(object):
+    """
+    The wallet stores and manages siacoins. The wallet's API endpoints expose methods for creating and loading wallets, locking and unlocking, sending siacoins, and getting the wallet's balance.
+    """
     def __init__(self, scpy):
         self.scpy = scpy
 

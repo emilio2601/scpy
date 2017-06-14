@@ -44,19 +44,13 @@ Here are other usage examples:
 
 
 
-Features
---------
-
-- Be awesome
-- Make things faster
-
 Implementation completeness
 ---------------------------
 ================== ==== ====== ==========
 Module             Done Tested Documented
 ================== ==== ====== ==========
 Daemon             ✔    ✔      ✔
-Consensus          ✔    ✔      ✖
+Consensus          ✔    ✔      ✔
 Gateway            ✔    ✔      ✖
 Host               ✔    ✖      ✖
 HostDB             ✔    ✔      ✖
