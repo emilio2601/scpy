@@ -16,7 +16,7 @@ Usage
 
 By default, scpy connects to the Sia daemon on localhost:9980. You can pass host and/or port as arguments to modify this.
 
-Scpy has 8 modules, which have their own methods. The documentation for each of those modules can be accessed in the
+scpy has 8 modules, which have their own methods. The documentation for each of those modules can be accessed in the
 sidebar. Here is an example of usage for each module:
 
 .. code-block:: python
