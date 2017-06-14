@@ -2,7 +2,7 @@ Gateway
 =======
 
 .. automodule:: scpy.gateway
-:members:
-        :undoc-members:
-        :show-inheritance:
-            :special-members: __call__
+    :members:
+    :undoc-members:
+    :show-inheritance:
+    :special-members: __call__

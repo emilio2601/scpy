@@ -2,7 +2,7 @@ Host
 ====
 
 .. automodule:: scpy.host
-:members:
-        :undoc-members:
-        :show-inheritance:
+    :members:
+    :undoc-members:
+    :show-inheritance:
 

@@ -2,6 +2,6 @@ Renter
 ======
 
 .. automodule:: scpy.renter
-:members:
-        :undoc-members:
-        :show-inheritance:
+    :members:
+    :undoc-members:
+    :show-inheritance:
