@@ -13,7 +13,7 @@ Usage
 
 By default, scpy connects to the Sia daemon on localhost:9980. You can pass host and/or port as arguments to modify this.
 
-Here are other usage examples:
+Here are other usage examples::
 
     >>> sc.wallet.unlock(seed)
     True
