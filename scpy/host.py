@@ -1,7 +1,5 @@
-from scpy import Sia
-
 class SiaHost(object):
-    def __init__(self, scpy: Sia):
+    def __init__(self, scpy):
         self.scpy = scpy
 
     def __call__(self):

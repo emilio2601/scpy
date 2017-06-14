@@ -27,16 +27,16 @@ True
 ```
 
 # Implementation completeness
-| Module      | Done?      | Tested|
-| ------------- |:-------------:|:-------------:|
-|Daemon| ✔ |✔
-|Consensus | ✔ |✔
-|Gateway| ✔ |✔
-|Host| ✔ |✖
-|HostDB| ✔ |✔
-|Renter| ✖ |✖
-|Transaction Pool| ✔ |✖
-|Wallet| ✔ |✖
+| Module      | Done?      | Tested| Documented
+| ------------- |:-------------:|:-------------:|:-------------:|
+|Daemon| ✔ |✔|✔
+|Consensus | ✔ |✔|✖
+|Gateway| ✔ |✔|✖
+|Host| ✔ |✖|✖
+|HostDB| ✔ |✔|✖
+|Renter| ✖ |✖|✖
+|Transaction Pool| ✔ |✖|✖
+|Wallet| ✔ |✖|✖
 
 # Contributing
 Contributions are really welcome, whether they are bug reports/fixes, new features, documentation writing, really anything is appreciated.
