@@ -1,6 +1,5 @@
 .. toctree::
 :caption: scpy api reference
-
         Daemon <daemon>
         Consensus <consensus>
         Gateway <gateway>
