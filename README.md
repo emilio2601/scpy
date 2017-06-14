@@ -41,6 +41,9 @@ True
 # Contributing
 Contributions are really welcome, whether they are bug reports/fixes, new features, documentation writing, really anything is appreciated.
 
+# Documentation
+Coming soon™, here: http://scpy.rtfd.io/
+
 # License
 This project is licensed under the GNU GPL v3.0
 
