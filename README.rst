@@ -64,9 +64,7 @@ Contribute
 ----------
 Contributions are really welcome, whether they are bug reports/fixes, new features, documentation writing, really anything is appreciated.
 
-You can send a pull request to our GitHub repo: https://github.com/emilio2601/scpy
-
-Alternatively, open an issue in our bug tracker here: https://github.com/emilio2601/scpy/issues
+You can send a pull request. Alternatively, open an issue in our bug tracker here: https://github.com/emilio2601/scpy/issues
 
 License
 -------
