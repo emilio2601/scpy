@@ -27,8 +27,8 @@ True
 | Module      | Done?      |
 | ------------- |:-------------:|
 |Daemon| Done, tested |
-|Consensus | |
-|Gateway| |
+|Consensus | Done, tested |
+|Gateway| Done, tested |
 |Host| |
 |HostDB| Done |
 |Renter| |
