@@ -34,7 +34,7 @@ sidebar. Here is an example of usage for each module:
     False
 
     >>> sc.hostdb.active()
-    [{'acceptingcontracts': True, 'maxdownloadbatchsize': 17825792, 'maxduration': 25920, 'maxrevisebatchsize': 17825792, 'netaddress': '163.172.74.59:9982', 'remainingstorage': 56698601472,...}, ...]
+    [{'acceptingcontracts': True, 'maxdownloadbatchsize': 17825792, 'maxduration': 25920, ...}, ...]
 
     >>> sc.renter.prices()['storageterabytemonth']
     '376439999996419200000000000'
