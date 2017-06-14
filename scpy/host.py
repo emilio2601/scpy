@@ -13,9 +13,9 @@ class SiaHost(object):
 
     def announce(self, address=None):
         if address:
-            self.scpy.post_api('/host/announce', data={'netaddress': address})
+            return self.scpy.post_api('/host/announce', data={'netaddress': address})
         else:
-            self.scpy.post_api('/host/announce')
+            return self.scpy.post_api('/host/announce')
 
     def get_folder_list(self):
         return self.scpy.get_api('/host/storage')['folders']
