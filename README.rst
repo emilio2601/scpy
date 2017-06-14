@@ -76,6 +76,10 @@ Contributions are really welcome, whether they are bug reports/fixes, new featur
 
 You can send a pull request. Alternatively, open an issue in our bug tracker here: https://github.com/emilio2601/scpy/issues
 
+Documentation
+----------
+It's a WIP (refer to completeness table) but some modules are already finished. Access it here: https://scpy.readthedocs.io/en/latest/
+
 License
 -------
 This project is licensed under the GNU GPL v3.0
