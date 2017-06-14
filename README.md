@@ -1,5 +1,7 @@
 # scpy
-Python3 API bindings for the Sia API
+Python3 API bindings for the [Sia API](https://github.com/NebulousLabs/Sia/blob/master/doc/API.md)
+
+[Sia](http://sia.tech/) is a decentralized cloud storage platform that uses a blockchain to facilitate payments
 
 # Usage
 ```python
@@ -32,7 +34,7 @@ True
 |Host| |
 |HostDB| Done |
 |Renter| |
-|Transaction Pool| |
+|Transaction Pool| Done |
 |Wallet| Done, not tested |
 
 # Contributing
