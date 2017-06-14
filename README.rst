@@ -1,7 +1,7 @@
 scpy
 ====
 
-Python3 API bindings for the `Sia API <https://github.com/NebulousLabs/Sia/blob/master/doc/API.md>`_
+Python3 bindings for the `Sia API <https://github.com/NebulousLabs/Sia/blob/master/doc/API.md>`_
 
 `Sia <http://sia.tech/>`_ is a decentralized cloud storage platform that uses a blockchain to facilitate payments
 

@@ -7,7 +7,7 @@ setup(
   author = 'Emilio Mendoza',
   author_email = 'emilio2601@gmail.com',
   url = 'https://github.com/emilio2601/scpy',
-  download_url = 'https://github.com/peterldowns/mypackage/archive/0.1.tar.gz',
+  download_url = 'https://github.com/emilio2601/scpy/archive/0.1.tar.gz',
   keywords = ['python3', 'sia', 'api', 'storage'],
   classifiers = [],
 )

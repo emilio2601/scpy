@@ -99,5 +99,12 @@ ENV/
 
 # mypy
 .mypy_cache/
-
-.pypirc
+.idea/misc.xml
+.idea/modules.xml
+.idea/scpy.iml
+.idea/workspace.xml
+MANIFEST
+docs/Makefile
+docs/_static/
+docs/_templates/
+docs/make.bat
