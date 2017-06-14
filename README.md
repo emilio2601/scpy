@@ -5,6 +5,7 @@ Python3 API bindings for the [Sia API](https://github.com/NebulousLabs/Sia/blob/
 
 # Usage
 ```python
+>>> from scpy import Sia
 >>> sc = Sia() #by default it connects to localhost:9980
 >>> sc = Sia(host='http://10.0.0.0', port=1234)
 
@@ -26,16 +27,16 @@ True
 ```
 
 # Implementation completeness
-| Module      | Done?      |
-| ------------- |:-------------:|
-|Daemon| Done, tested |
-|Consensus | Done, tested |
-|Gateway| Done, tested |
-|Host| |
-|HostDB| Done |
-|Renter| |
-|Transaction Pool| Done |
-|Wallet| Done, not tested |
+| Module      | Done?      | Tested|
+| ------------- |:-------------:|:-------------:|
+|Daemon| ✔ |✔
+|Consensus | ✔ |✔
+|Gateway| ✔ |✔
+|Host| ✔ |✖
+|HostDB| ✔ |✔
+|Renter| ✖ |✖
+|Transaction Pool| ✔ |✖
+|Wallet| ✔ |✖
 
 # Contributing
 Contributions are really welcome, whether they are bug reports/fixes, new features, documentation writing, really anything is appreciated.
