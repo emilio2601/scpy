@@ -1,6 +1,16 @@
 import pprint
+from json.decoder import JSONDecodeError
 
 import requests as r
+
+from .consensus import SiaConsensus
+from .daemon import SiaDaemon
+from .gateway import SiaGateway
+from .host import SiaHost
+from .hostdb import SiaHostDB
+from .renter import SiaRenter
+from .tpool import SiaTPool
+from .wallet import SiaWallet
 
 
 class Sia(object):
@@ -15,91 +25,24 @@ class Sia(object):
         self.tpool = SiaTPool(self)
         self.wallet = SiaWallet(self)
 
-
-
     def get_api(self, endpoint, params=None):
         user_agent = {'User-agent': 'Sia-Agent'}
         resp = r.get(self.url + endpoint, headers=user_agent, params=params)
-        return resp.json()
+        try:
+            return resp.json()
+        except JSONDecodeError:
+            return resp.ok
 
     def post_api(self, endpoint, data=None):
         user_agent = {'User-agent': 'Sia-Agent'}
         resp = r.post(self.url + endpoint, headers=user_agent, data=data)
-        return resp.json()
+        try:
+            return resp.json()
+        except JSONDecodeError:
+            return resp.ok
 
     def hastings_to_siacoin(self, hastings):
         return hastings / 1000000000000000000000000
-
-
-class SiaDaemon(object):
-    def __init__(self, scpy):
-        self.scpy = scpy
-
-    def constants(self, constant=None):
-        return self.scpy.get_api('/daemon/constants')
-
-    def constant(self, constant):
-        try:
-            return self.scpy.get_api('/daemon/constants')[constant]
-        except KeyError:
-            pass
-        raise KeyError(f"Constant not found: {constant}")
-
-    def stop(self):
-        return self.scpy.get_api('/daemon/stop')
-
-    def version(self):
-        return self.scpy.get_api('/daemon/version')['version']
-
-
-class SiaConsensus(object):
-    def __init__(self, scpy):
-        self.scpy = scpy
-
-
-class SiaGateway(object):
-    def __init__(self, scpy):
-        self.scpy = scpy
-
-
-class SiaHost(object):
-    def __init__(self, scpy):
-        self.scpy = scpy
-
-
-class SiaHostDB(object):
-    def __init__(self, scpy):
-        self.scpy = scpy
-
-    def active(self, numhosts=None):
-        if numhosts:
-            return self.scpy.get_api('/hostdb/active', params={'numhosts': numhosts})['hosts']
-        else:
-            return self.scpy.get_api('/hostdb/active')['hosts']
-
-    def all(self):
-        return self.scpy.get_api('/hostdb/all')['hosts']
-
-    def host(self, pubkey):
-        return self.scpy.get_api(f'/hostdb/hosts/{pubkey}')
-
-
-class SiaRenter(object):
-    def __init__(self, scpy):
-        self.scpy = scpy
-
-    def prices(self):
-        return self.scpy.get_api('/renter/prices')
-
-
-class SiaTPool(object):
-    def __init__(self, scpy):
-        self.scpy = scpy
-
-
-class SiaWallet(object):
-    def __init__(self, scpy):
-        self.scpy = scpy
 
 if __name__ == '__main__':
     sc = Sia()
