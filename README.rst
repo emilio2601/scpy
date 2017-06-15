@@ -54,7 +54,7 @@ Module             Done Tested Documented
 ================== ==== ====== ==========
 Daemon             ✔    ✔      ✔
 Consensus          ✔    ✔      ✔
-Gateway            ✔    ✔      ✖
+Gateway            ✔    ✔      ✔
 Host               ✔    ✖      ✖
 HostDB             ✔    ✔      ✖
 Renter             ✔    ✖      ✖

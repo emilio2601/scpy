@@ -9,6 +9,6 @@ class SiaConsensus(object):
         """
         Returns information about the consensus set, such as the current block height.
 
-        :return: dict - a dict with information about the consensus set:
+        :return: ``dict`` - a dict with information about the consensus set
         """
         return self.scpy.get_api('/consensus')
