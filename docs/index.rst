@@ -63,11 +63,11 @@ Module             Done Tested Documented
 Daemon             ✔    ✔      ✔
 Consensus          ✔    ✔      ✔
 Gateway            ✔    ✔      ✔
-Host               ✔    ✖      ✖
-HostDB             ✔    ✔      ✖
-Renter             ✔    ✖      ✖
-Transaction Pool   ✔    ✖      ✖
-Wallet             ✔    ✖      ✖
+Host               ✔    ✖      ✔
+HostDB             ✔    ✔      ✔
+Renter             ✔    ✖      ✔
+Transaction Pool   ✔    ✖      ✔
+Wallet             ✔    ✖      ✔
 ================== ==== ====== ==========
 
 
@@ -80,7 +80,7 @@ Install scpy by running::
 
 Contribute
 ----------
-Contributions are really welcome, whether they are bug reports/fixes, new features, documentation writing, really anything is appreciated.
+Contributions are really welcome, whether they are bug reports/fixes, new features, documentation writing, test writing, really anything is appreciated.
 
 You can send a pull request to our GitHub repo: https://github.com/emilio2601/scpy
 

@@ -55,11 +55,11 @@ Module             Done Tested Documented
 Daemon             ✔    ✔      ✔
 Consensus          ✔    ✔      ✔
 Gateway            ✔    ✔      ✔
-Host               ✔    ✖      ✖
-HostDB             ✔    ✔      ✖
-Renter             ✔    ✖      ✖
-Transaction Pool   ✔    ✖      ✖
-Wallet             ✔    ✖      ✖
+Host               ✔    ✖      ✔
+HostDB             ✔    ✔      ✔
+Renter             ✔    ✖      ✔
+Transaction Pool   ✔    ✖      ✔
+Wallet             ✔    ✖      ✔
 ================== ==== ====== ==========
 
 
@@ -72,13 +72,13 @@ Installation
 
 Contribute
 ----------
-Contributions are really welcome, whether they are bug reports/fixes, new features, documentation writing, really anything is appreciated.
+Contributions are really welcome, whether they are bug reports/fixes, new features, documentation writing, test writing, really anything is appreciated.
 
-You can send a pull request. Alternatively, open an issue in our bug tracker here: https://github.com/emilio2601/scpy/issues
+You can open an issue in our `bug tracker <https://github.com/emilio2601/scpy/issues>`here, or even better, you can send a pull request.
 
 Documentation
 ----------
-It's a WIP (refer to completeness table) but some modules are already finished. Access it here: https://scpy.readthedocs.io/en/latest/
+Sure, access it here: https://scpy.readthedocs.io/en/latest/
 
 License
 -------
