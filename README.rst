@@ -40,7 +40,7 @@ sidebar. Here is an example of usage for each module:
     '376439999996419200000000000'
 
     >>> sc.tpool.fee()
-    #to be implemented in next siad release
+    {"minimum": "1234", "maximum": "5678"}
 
     >>> sc.wallet.get_addresses()
     ['81b202b982558b18ef62d93399b34ae0cd5c8e090504fa294d8a6b669a02d88a44caed9ea098', ...]
