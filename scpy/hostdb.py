@@ -19,12 +19,10 @@ class SiaHostDB(object):
         else:
             return self.scpy.get_api('/hostdb/active')['hosts']
 
+    @property
     def all(self):
         """
-        Lists all of the hosts known to the renter. Hosts are not guaranteed to be in any particular order, and the order may change in subsequent calls.
-
-        :return: List of dicts with host information
-        :example: https://github.com/NebulousLabs/Sia/blob/master/doc/api/HostDB.md#example-json-response-1
+        List with all of the hosts known to the renter. Hosts are not guaranteed to be in any particular order, and the order may change in subsequent calls.
         """
         return self.scpy.get_api('/hostdb/all')['hosts']
 

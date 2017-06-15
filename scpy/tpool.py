@@ -5,6 +5,7 @@ class SiaTPool(object):
     def __init__(self, scpy):
         self.scpy = scpy
 
+    @property
     def fee(self):
         """
         Returns the minimum and maximum estimated fees expected by the transaction pool.

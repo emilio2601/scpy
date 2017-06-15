@@ -1,3 +1,5 @@
+from collections import namedtuple
+
 class SiaHost(object):
     """
     The host provides storage from local disks to the network. The host negotiates file contracts with remote renters to earn money for storing other users' files. The host's endpoints expose methods for viewing and modifying host settings, announcing to the network, and managing how files are stored on disk.
@@ -5,13 +7,52 @@ class SiaHost(object):
     def __init__(self, scpy):
         self.scpy = scpy
 
-    def __call__(self):
+    @property
+    def externalsettings(self):
         """
-        Fetches status information about the host
+        The settings that get displayed to untrusted nodes querying the host's status.
+        """
+        x = self.scpy.get_api('/host')['externalsettings']
+        return namedtuple("ExternalSettings", x.keys())(*x.values())
 
-        :return: Dict with information about the host
+    @property
+    def financialmetrics(self):
         """
-        return self.scpy.get_api('/host')
+        The financial status of the host.
+        """
+        x = self.scpy.get_api('/host')['financialmetrics']
+        return namedtuple("FinancialMetrics", x.keys())(*x.values())
+
+    @property
+    def internalsettings(self):
+        """
+        The settings of the host. Most interactions between the user and the host occur by changing the internal settings.
+        """
+        x = self.scpy.get_api('/host')['internalsettings']
+        return namedtuple("InternalSettings", x.keys())(*x.values())
+
+    @property
+    def networkmetrics(self):
+        """
+        Information about the network, specifically various ways in which renters have contacted the host.
+        """
+        x = self.scpy.get_api('/host')['networkmetrics']
+        return namedtuple("NetworkMetrics", x.keys())(*x.values())
+
+    @property
+    def connectabilitystatus(self):
+        """
+        connectabilitystatus is one of "checking", "connectable", or "not connectable",
+        and indicates if the host can connect to itself on its configured NetAddress.
+        """
+        return self.scpy.get_api('/host')['connectabilitystatus']
+
+    @property
+    def workingstatus(self):
+        """
+        workingstatus is one of "checking", "working", or "not working" and indicates if the host is being actively used by renters.
+        """
+        return self.scpy.get_api('/host')['workingstatus']
 
     def set_setting(self, parameter, value):
         """

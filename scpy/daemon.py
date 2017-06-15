@@ -1,28 +1,29 @@
+from collections import namedtuple
+
 class SiaDaemon(object):
     """The daemon is responsible for starting and stopping the modules which make up the rest of Sia. It also provides endpoints for viewing build constants."""
     def __init__(self, scpy):
         self.scpy = scpy
 
-    def constants(self):
-        """
-        Returns the set of constants in use
-
-        :return: Dict with the set of constants in use
-        """
-        return self.scpy.get_api('/daemon/constants')
-
     def stop(self):
         """
-        Cleanly shuts down the Sia Daemon
+        Cleanly shuts down the Sia daemon
 
         :return: True if action succeeded, error message if not
         """
         return self.scpy.get_api('/daemon/stop')
 
+    @property
     def version(self):
         """
-        Returns the version of the Sia Daemon
-
-        :return: String containing the version
+        Version of the Sia daemon
         """
         return self.scpy.get_api('/daemon/version')['version']
+
+    @property
+    def constants(self):
+        """
+        Set of constants in use
+        """
+        constants = self.scpy.get_api('/daemon/constants')
+        return namedtuple("Constants",constants.keys())(*constants.values())

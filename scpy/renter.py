@@ -1,3 +1,5 @@
+from collections import namedtuple
+
 class SiaRenter(object):
     """
     The renter manages the user's files on the network. The renter's API endpoints expose methods for managing files on the network and managing the renter's allocated funds.
@@ -32,6 +34,7 @@ class SiaRenter(object):
         """
         return self.scpy.get_api('/renter/contracts')['contracts']
 
+    @property
     def downloads(self):
         """
         Lists all files in the download queue.
@@ -40,6 +43,7 @@ class SiaRenter(object):
         """
         return self.scpy.get_api('/renter/downloads')['downloads']
 
+    @property
     def files(self):
         """
         Lists the status of all files.
@@ -48,13 +52,13 @@ class SiaRenter(object):
         """
         return self.scpy.get_api('/renter/files')['files']
 
+    @property
     def prices(self):
         """
-        Lists the estimated prices of performing various storage and data operations.
-
-        :return: Dict with prices for various operations
+        Estimated prices of performing various storage and data operations.
         """
-        return self.scpy.get_api('/renter/prices')
+        prices = self.scpy.get_api('/renter/prices')
+        return namedtuple("Prices", prices.keys())(*[int(x) for x in prices.values()])
 
     def delete(self, path):
         """

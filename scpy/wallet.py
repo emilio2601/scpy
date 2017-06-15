@@ -23,11 +23,10 @@ class SiaWallet(object):
         """
         return self.scpy.get_api('/wallet/address')['address']
 
-    def get_addresses(self):
+    @property
+    def addresses(self):
         """
-        Fetches the list of addresses from the wallet.
-
-        :return: Array of wallet addresses
+        List of addresses from the wallet.
         """
         return self.scpy.get_api('/wallet/addresses')['addresses']
 
