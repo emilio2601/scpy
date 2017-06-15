@@ -11,22 +11,6 @@ class SiaDaemon(object):
         """
         return self.scpy.get_api('/daemon/constants')
 
-    def constant(self, constant):
-        """
-        Returns a constant from the set of constants in use
-
-        :param constant: The constant to look up
-        :type constant: str
-        :return: The value of the constant
-        :raises: KeyError: if key not in the set of constants
-        """
-        try:
-            return self.scpy.get_api('/daemon/constants')[constant]
-        except KeyError:
-            pass
-        raise KeyError(f"Constant not found: {constant}")
-
-
     def stop(self):
         """
         Cleanly shuts down the Sia Daemon
