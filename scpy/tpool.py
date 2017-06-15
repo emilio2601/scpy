@@ -1,4 +1,7 @@
 class SiaTPool(object):
+    """
+    The transaction pool provides endpoints for getting transactions currently in the transaction pool and submitting transactions to the transaction pool.
+    """
     def __init__(self, scpy):
         self.scpy = scpy
 

@@ -1,4 +1,7 @@
 class SiaRenter(object):
+    """
+    The renter manages the user's files on the network. The renter's API endpoints expose methods for managing files on the network and managing the renter's allocated funds.
+    """
     def __init__(self, scpy):
         self.scpy = scpy
 

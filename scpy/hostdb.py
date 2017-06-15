@@ -1,4 +1,7 @@
 class SiaHostDB(object):
+    """
+    The HostDB maintains a database of all hosts known to the network. The database identifies hosts by their public key and keeps track of metrics such as price.
+    """
     def __init__(self, scpy):
         self.scpy = scpy
 
