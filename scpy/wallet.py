@@ -7,7 +7,7 @@ class SiaWallet(object):
     def __init__(self, scpy):
         self.scpy = scpy
 
-    def wallet(self):
+    def __call__(self):
         return self.scpy.get_api('/wallet')
 
     def gen_address(self):

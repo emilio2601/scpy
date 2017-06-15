@@ -57,7 +57,7 @@ Consensus          ✔    ✔      ✔
 Gateway            ✔    ✔      ✖
 Host               ✔    ✖      ✖
 HostDB             ✔    ✔      ✖
-Renter             ✖    ✖      ✖
+Renter             ✔    ✖      ✖
 Transaction Pool   ✔    ✖      ✖
 Wallet             ✔    ✖      ✖
 ================== ==== ====== ==========
