@@ -58,10 +58,35 @@ class SiaHost(object):
         return self.scpy.post_api('/host/storage/folders/add', data={'path': path, 'size': size})
 
     def remove_folder(self, path, force=False):
+        """
+        Remove a storage folder from the manager. All storage on the folder will be moved to other storage folders, meaning that no data will be lost. If the manager is unable to save data, an error will be returned and the operation will be stopped.
+
+        :param path: Local path on disk to the storage folder to remove.
+        :type path: str
+        :param force: If true, the storage folder will be removed even if the data in the storage folder cannot be moved to other storage folders, typically because they don't have sufficient capacity. If force is true and the data cannot be moved, data will be lost.
+        :type force: bool
+        :return: True if action succeeded, error message if not
+        """
         return self.scpy.post_api('/host/storage/folders/remove', data={'path': path, 'force': force})
 
     def resize_folder(self, path, newsize):
+        """
+        Grows or shrinks a storage folder in the manager. The manager may not check that there is enough space on-disk to support growing the storage folder, but should gracefully handle running out of space unexpectedly. When shrinking a storage folder, any data in the folder that needs to be moved will be placed into other storage folders, meaning that no data will be lost. If the manager is unable to migrate the data, an error will be returned and the operation will be stopped.
+
+        :param path: Local path on disk to the storage folder to resize.
+        :type path: str
+        :param newsize: Desired new size of the storage folder. This will be the new capacity of the storage folder.
+        :type newsize: int
+        :return: True if action succeeded, error message if not
+        """
         return self.scpy.post_api('/host/storage/folders/resize', data={'path': path, 'newsize': newsize})
 
     def delete_sector(self, merkleroot):
+        """
+        Deletes a sector, meaning that the manager will be unable to upload that sector and be unable to provide a storage proof on that sector. This endpoint is for removing the data entirely, and will remove instances of the sector appearing at all heights. The primary purpose is to comply with legal requests to remove data.
+
+        :param merkleroot: Merkle root of the sector to delete.
+        :type merkleroot: str
+        :return: True if action succeeded, error message if not
+        """
         return self.scpy.post_api(f'/host/storage/sectors/delete/{merkleroot}')
