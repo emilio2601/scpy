@@ -29,6 +29,10 @@ class Sia(object):
         user_agent = {'User-agent': 'Sia-Agent'}
         resp = r.get(self.url + endpoint, headers=user_agent, params=params)
         try:
+            resp.raise_for_status()
+        except r.exceptions.HTTPError as e:
+            raise SiaError(resp.json().get('message')) from e
+        try:
             return resp.json()
         except JSONDecodeError:
             return resp.ok
@@ -37,12 +41,21 @@ class Sia(object):
         user_agent = {'User-agent': 'Sia-Agent'}
         resp = r.post(self.url + endpoint, headers=user_agent, data=data)
         try:
+            resp.raise_for_status()
+        except r.exceptions.HTTPError as e:
+            raise SiaError(resp.json().get('message')) from e
+        try:
             return resp.json()
         except JSONDecodeError:
             return resp.ok
 
     def hastings_to_siacoin(self, hastings):
         return hastings / 1000000000000000000000000
+
+
+class SiaError(Exception):
+    def __init__(self, message):
+        self.message = message
 
 if __name__ == '__main__':
     sc = Sia()

@@ -74,7 +74,7 @@ Contribute
 ----------
 Contributions are really welcome, whether they are bug reports/fixes, new features, documentation writing, test writing, really anything is appreciated.
 
-You can open an issue in our `bug tracker <https://github.com/emilio2601/scpy/issues>`_ here, or even better, you can send a pull request.
+You can open an issue in our `bug tracker <https://github.com/emilio2601/scpy/issues>`_, or even better, you can send a pull request.
 
 Documentation
 ----------
