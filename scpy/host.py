@@ -131,3 +131,11 @@ class SiaHost(object):
         :return: True if action succeeded, error message if not
         """
         return self.scpy.post_api(f'/host/storage/sectors/delete/{merkleroot}')
+
+    @property
+    def estimate_score(self, settings=None):
+        if settings:
+            return self.scpy.get_api('/host/estimatescore', params=settings)
+        else:
+            return self.scpy.get_api('/host/estimatescore')
+
