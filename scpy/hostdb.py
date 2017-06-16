@@ -12,7 +12,6 @@ class SiaHostDB(object):
         :param numhosts: Number of hosts to return. The actual number of hosts returned may be less if there are insufficient active hosts. Optional, the default is all active hosts.
         :type numhosts: int
         :return: List of dicts with host information, sorted by preference
-        :example: https://github.com/NebulousLabs/Sia/blob/master/doc/api/HostDB.md#example-json-response
         """
         if numhosts:
             return self.scpy.get_api('/hostdb/active', params={'numhosts': numhosts})['hosts']
@@ -33,6 +32,5 @@ class SiaHostDB(object):
         :param pubkey: The public key of the host. Each public key identifies a single host.
         :type pubkey: str
         :return: Dict with detailed host information
-        :example: https://github.com/NebulousLabs/Sia/blob/master/doc/api/HostDB.md#example-json-response-2
         """
         return self.scpy.get_api(f'/hostdb/hosts/{pubkey}')
