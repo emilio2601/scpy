@@ -1,8 +1,9 @@
-from distutils.core import setup
+from setuptools import setup
 setup(
   name = 'sia-scpy',
   packages = ['scpy'],
-  version = '0.2',
+  version = '0.2.1',
+  install_requires = ['requests'],
   description = 'Python3 API bindings for the Sia API',
   author = 'Emilio Mendoza',
   author_email = 'emilio2601@gmail.com',
