@@ -80,7 +80,7 @@ Installation
 
 Install scpy by running::
 
-    $ pip install scpy
+    $ pip install sia-scpy
 
 Contribute
 ----------

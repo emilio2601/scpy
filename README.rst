@@ -68,7 +68,7 @@ Installation
 
 .. code-block:: console
 
-    $ pip install scpy
+    $ pip install sia-scpy
 
 Contribute
 ----------
