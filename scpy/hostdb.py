@@ -32,5 +32,6 @@ class SiaHostDB(object):
         :param pubkey: The public key of the host. Each public key identifies a single host.
         :type pubkey: str
         :return: Dict with detailed host information
+        :raises: SiaError if no host corresponding to pubkey was found
         """
         return self.scpy.get_api(f'/hostdb/hosts/{pubkey}')

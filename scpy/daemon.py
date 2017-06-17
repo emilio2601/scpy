@@ -9,7 +9,8 @@ class SiaDaemon(object):
         """
         Cleanly shuts down the Sia daemon
 
-        :return: True if action succeeded, error message if not
+        :return: True if action succeeded
+        :raises: SiaError if action was unsuccessful
         """
         return self.scpy.get_api('/daemon/stop')
 

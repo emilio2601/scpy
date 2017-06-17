@@ -61,7 +61,8 @@ class SiaHost(object):
         :param parameter: The parameter to change, e.g: 'collateral'
         :type parameter: str
         :param value: The parameter's new value
-        :return: True if action succeeded, error message if not
+        :return: True if action succeeded
+        :raises: SiaError if action was unsuccessful
         """
         return self.scpy.post_api('/host', data={parameter: value})
 
@@ -71,7 +72,8 @@ class SiaHost(object):
 
         :param address: The address to be announced. If no address is provided, the automatically discovered address will be used instead.
         :type address: str
-        :return: True if action succeeded, error message if not
+        :return: True if action succeeded
+        :raises: SiaError if action was unsuccessful
         """
         if address:
             return self.scpy.post_api('/host/announce', data={'netaddress': address})
@@ -94,7 +96,8 @@ class SiaHost(object):
         :type path: str
         :param size: Initial capacity of the storage folder. This value isn't validated so it is possible to set the capacity of the storage folder greater than the capacity of the disk. Do not do this.
         :type size: int
-        :return: True if action succeeded, error message if not
+        :return: True if action succeeded
+        :raises: SiaError if action was unsuccessful
         """
         return self.scpy.post_api('/host/storage/folders/add', data={'path': path, 'size': size})
 
@@ -106,7 +109,8 @@ class SiaHost(object):
         :type path: str
         :param force: If true, the storage folder will be removed even if the data in the storage folder cannot be moved to other storage folders, typically because they don't have sufficient capacity. If force is true and the data cannot be moved, data will be lost.
         :type force: bool
-        :return: True if action succeeded, error message if not
+        :return: True if action succeeded
+        :raises: SiaError if action was unsuccessful
         """
         return self.scpy.post_api('/host/storage/folders/remove', data={'path': path, 'force': force})
 
@@ -118,7 +122,8 @@ class SiaHost(object):
         :type path: str
         :param newsize: Desired new size of the storage folder. This will be the new capacity of the storage folder.
         :type newsize: int
-        :return: True if action succeeded, error message if not
+        :return: True if action succeeded
+        :raises: SiaError if action was unsuccessful
         """
         return self.scpy.post_api('/host/storage/folders/resize', data={'path': path, 'newsize': newsize})
 
@@ -128,12 +133,19 @@ class SiaHost(object):
 
         :param merkleroot: Merkle root of the sector to delete.
         :type merkleroot: str
-        :return: True if action succeeded, error message if not
+        :return: True if action succeeded
+        :raises: SiaError if action was unsuccessful
         """
         return self.scpy.post_api(f'/host/storage/sectors/delete/{merkleroot}')
 
-    @property
     def estimate_score(self, settings=None):
+        """
+        Returns the estimated HostDB score of the host using its current settings, combined with the provided settings
+
+        :param settings: Optional param: settings to estimate score. They override the current ones.
+        :type settings: dict
+        :return: Dict with estimated score and conversion rate (likelihood that the host will be selected by renters forming contracts)
+        """
         if settings:
             return self.scpy.get_api('/host/estimatescore', params=settings)
         else:

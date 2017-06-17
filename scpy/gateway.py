@@ -19,7 +19,8 @@ class SiaGateway(object):
 
         :param address: The address of the peer to connect to. It should be a reachable ip address and port number, of the form 'IP:port'. IPv6 addresses must be enclosed in square brackets.
         :type address: str
-        :return: True if action succeeded, error message if not
+        :return: True if action succeeded
+        :raises: SiaError if action was unsuccessful
         """
         return self.scpy.post_api(f'/gateway/connect/{address}')
 
@@ -29,6 +30,7 @@ class SiaGateway(object):
 
         :param address: The address of the peer to disconnect from. It should comply to the same restrictions as the connect() method.
         :type address: str
-        :return: True if action succeeded, error message if not
+        :return: True if action succeeded
+        :raises: SiaError if action was unsuccessful
         """
         return self.scpy.post_api(f'/gateway/disconnect/{address}')

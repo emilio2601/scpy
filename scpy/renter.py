@@ -66,7 +66,8 @@ class SiaRenter(object):
 
         :param path: Location of the file in the renter on the network
         :type path: str
-        :return: True if action succeeded, error message if not
+        :return: True if action succeeded
+        :raises: SiaError if action was unsuccessful
         """
         return self.scpy.post_api(f'/renter/delete/{path}')
 
@@ -80,7 +81,8 @@ class SiaRenter(object):
         :type dest: str
         :param async: Whether the call will block until the file has been downloaded
         :type async: bool
-        :return: True if action succeeded, error message if not
+        :return: True if action succeeded
+        :raises: SiaError if action was unsuccessful
         """
         if async:
             return self.scpy.get_api(f'/renter/downloadasync/{path}', params={'destination': dest})
@@ -93,7 +95,8 @@ class SiaRenter(object):
 
         :param old: Current location of the file in the renter on the network
         :param new: New location of the file in the renter on the network
-        :return: True if action succeeded, error message if not
+        :return: True if action succeeded
+        :raises: SiaError if action was unsuccessful
         """
         return self.scpy.post_api(f'/renter/rename/{old}', data={'newsiapath': new})
 
@@ -105,6 +108,7 @@ class SiaRenter(object):
         :param source: Location on disk of the file being uploaded
         :param datapieces: The number of data pieces to use when erasure coding the file
         :param paritypieces: The number of parity pieces to use when erasure coding the file. Total redundancy of the file is ``(datapieces + paritypieces)/datapieces``
-        :return: True if action succeeded, error message if not
+        :return: True if action succeeded
+        :raises: SiaError if action was unsuccessful
         """
         return self.scpy.post_api(f'/renter/upload/{path}', data={'datapieces': datapieces, 'paritypieces': paritypieces, 'source': source})

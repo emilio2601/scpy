@@ -29,6 +29,7 @@ class SiaTPool(object):
 
         :param parents: Raw base64 encoded transaction parents
         :param transaction: Raw base64 encoded transaction
-        :return: True if action succeeded, error message if not
+        :return: True if action succeeded
+        :raises: SiaError if action was unsuccessful
         """
         return self.scpy.post_api('/tpool/raw', data={'parents': parents, 'transaction': transaction})

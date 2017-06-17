@@ -36,7 +36,8 @@ class SiaWallet(object):
 
         :param dest: Path to the location on disk where the backup file will be saved
         :type dest: str
-        :return: True if action succeeded, error message if not
+        :return: True if action succeeded
+        :raises: SiaError if action was unsuccessful
         """
         return self.scpy.get_api('/wallet/address', params={'destination': dest})
 
@@ -67,7 +68,8 @@ class SiaWallet(object):
         :type dictionary: str
         :param force: When set to true /wallet/init will Reset the wallet if one exists instead of returning an error. This allows API callers to reinitialize a new wallet
         :type force: bool
-        :return: True if action succeeded, error message if not
+        :return: True if action succeeded
+        :raises: SiaError if action was unsuccessful
         """
         return self.scpy.post_api('/wallet/init/seed',
                                   data={'encryptionpassword': password, 'dictionary': dictionary, 'force': force})
@@ -82,7 +84,8 @@ class SiaWallet(object):
         :type password: str
         :param dictionary: Name of the dictionary that should be used when encoding the seed. 'english' is the most common choice when picking a dictionary
         :type dictionary: str
-        :return: True if action succeeded, error message if not
+        :return: True if action succeeded
+        :raises: SiaError if action was unsuccessful
         """
         return self.scpy.post_api('/wallet/seed',
                                   data={'encryptionpassword': password, 'dictionary': dictionary, 'seed': seed})
@@ -140,7 +143,8 @@ class SiaWallet(object):
         """
         Locks the wallet, wiping all secret keys. After being locked, the keys are encrypted. Queries for the seed, to send siafunds, and related queries become unavailable. Queries concerning transaction history and balance are still available.
 
-        :return: True if action succeeded, error message if not
+        :return: True if action succeeded
+        :raises: SiaError if action was unsuccessful
         """
         return self.scpy.post_api('/wallet/lock')
 
@@ -182,7 +186,8 @@ class SiaWallet(object):
 
         :param password: Password that gets used to decrypt the file. Most frequently, the encryption password is the same as the primary wallet seed.
         :type password: str
-        :return: True if action succeeded, error message if not
+        :return: True if action succeeded
+        :raises: SiaError if action was unsuccessful
         """
         return self.scpy.post_api('/wallet/unlock', data={'encryptionpassword': password})
 
@@ -204,6 +209,7 @@ class SiaWallet(object):
         :type old: str
         :param new: New password for the wallet
         :type new: str
-        :return: True if action succeeded, error message if not
+        :return: True if action succeeded
+        :raises: SiaError if action was unsuccessful
         """
         return self.scpy.post_api('/wallet/changepassword', data={'encryptionpassword': old, 'newpassword': new})
