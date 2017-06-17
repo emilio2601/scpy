@@ -2,7 +2,7 @@ from setuptools import setup
 setup(
   name = 'sia-scpy',
   packages = ['scpy'],
-  version = '0.2.1',
+  version = '0.2.3',
   install_requires = ['requests'],
   description = 'Python3 API bindings for the Sia API',
   author = 'Emilio Mendoza',
