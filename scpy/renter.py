@@ -24,9 +24,9 @@ class SiaRenter(object):
         :param value: The parameter's new value
         :return: True if action succeeded, error message if not
         """
-        current_settings = self.scpy.get_api('/renter')['settings']['allowance']
-        mod_settings = current_settings[parameter] = value
-        return self.scpy.post_api('/renter', data=mod_settings)
+        settings = self.scpy.get_api('/renter')['settings']['allowance']
+        settings[parameter] = value
+        return self.scpy.post_api('/renter', data=settings)
 
     def get_contracts(self):
         """
